@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+
+	<bannerRight>
+		<name>${project.name}</name>
+		<alt>${project.name}</alt>
+		<src>images/logo.png</src>
+		<href>../jatoo-mp3/index.html</href>
+	</bannerRight>
+
+	<body>
+
+		<menu name="${project.name}">
+			<item name="Welcome" href="index.html"></item>
+		</menu>
+
+		<menu name="Maven 2.0">
+			<item name="APT Format" href="format.html" />
+			<item name="FAQ" href="faq.html" />
+			<item name="Xdoc Example" href="xdoc.html" />
+		</menu>
+
+		<menu ref="reports" />
+
+	</body>
+
+</project>

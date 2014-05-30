@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>jatoo</groupId>
+		<artifactId>jatoo</artifactId>
+		<relativePath>../jatoo</relativePath>
+		<version>3.0</version>
+	</parent>
+
+
+	<artifactId>jatoo-mp3</artifactId>
+
+
+	<name>JaToo :: Mp3</name>
+	<description>JaToo :: Mp3</description>
+	<url>http://cristian.sulea.net/projects/jatoo-mp3/</url>
+
+	<inceptionYear>2011</inceptionYear>
+
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License, Version 3</name>
+			<url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+		</license>
+	</licenses>
+
+
+	<developers>
+		<developer>
+			<id>cristian.sulea</id>
+			<name>Cristian Sulea</name>
+			<email>cristian.sulea.79@gmail.com</email>
+			<url>http://cristian.sulea.net</url>
+			<roles>
+				<role>Architect</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>+3</timezone>
+		</developer>
+	</developers>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javazoom</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>${dependency.version.javazoom-jlayer}</version>
+		</dependency>
+
+	</dependencies>
+
+
+</project>
