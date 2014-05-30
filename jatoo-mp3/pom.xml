@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>jatoo</groupId>
 		<artifactId>jatoo</artifactId>
-		<relativePath>../jatoo</relativePath>
+		<relativePath>../../jatoo/jatoo/pom.xml</relativePath>
 		<version>3.0</version>
 	</parent>
 
