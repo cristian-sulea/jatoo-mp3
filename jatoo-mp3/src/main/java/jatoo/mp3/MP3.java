@@ -20,7 +20,8 @@ package jatoo.mp3;
 import javax.sound.sampled.SourceDataLine;
 
 /**
- * Mp3 Interface
+ * This interface provides methods (like {@link #play()}, {@link #pause()},
+ * {@link #stop()}, and so on) to work with a mp3 file.
  * 
  * @author Cristian Sulea ( http://cristian.sulea.net )
  * @version 1.1, May 19, 2014

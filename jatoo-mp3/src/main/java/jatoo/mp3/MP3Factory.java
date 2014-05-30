@@ -26,7 +26,9 @@ import java.net.URL;
  * @author Cristian Sulea ( http://cristian.sulea.net )
  * @version 2.0, May 16, 2014
  */
-public class MP3Factory {
+public final class MP3Factory {
+
+  private MP3Factory() {}
 
   public static MP3 createMP3(MP3Input input) {
     return new MP3Impl(input);
