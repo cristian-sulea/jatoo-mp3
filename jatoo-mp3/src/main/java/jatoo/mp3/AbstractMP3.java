@@ -29,84 +29,84 @@ import org.apache.commons.logging.LogFactory;
  */
 public abstract class AbstractMP3 implements MP3 {
 
-	protected final Log logger = LogFactory.getLog(getClass());
+  protected final Log logger = LogFactory.getLog(getClass());
 
-	protected final Object mutex = new Object();
+  protected final Object mutex = new Object();
 
-	protected enum STATUS {
-		PLAYING,
-		PAUSED,
-		STOPPED
-	}
+  protected enum STATUS {
+    PLAYING,
+    PAUSED,
+    STOPPED
+  }
 
-	protected volatile STATUS status = STATUS.STOPPED;
-	protected volatile int volume = 100;
+  protected volatile STATUS status = STATUS.STOPPED;
+  protected volatile int volume = 100;
 
-	@Override
-	public final void play() {
-		synchronized (mutex) {
-			playImpl();
-		}
-	}
+  @Override
+  public final void play() {
+    synchronized (mutex) {
+      playImpl();
+    }
+  }
 
-	protected abstract void playImpl();
+  protected abstract void playImpl();
 
-	@Override
-	public final boolean isPlaying() {
-		synchronized (mutex) {
-			return status == STATUS.PLAYING;
-		}
-	}
+  @Override
+  public final boolean isPlaying() {
+    synchronized (mutex) {
+      return status == STATUS.PLAYING;
+    }
+  }
 
-	@Override
-	public final void pause() {
+  @Override
+  public final void pause() {
 
-		logger.info("pause");
+    logger.info("pause");
 
-		synchronized (mutex) {
-			status = STATUS.PAUSED;
-		}
-	}
+    synchronized (mutex) {
+      status = STATUS.PAUSED;
+    }
+  }
 
-	@Override
-	public final boolean isPaused() {
-		synchronized (mutex) {
-			return status == STATUS.PAUSED;
-		}
-	}
+  @Override
+  public final boolean isPaused() {
+    synchronized (mutex) {
+      return status == STATUS.PAUSED;
+    }
+  }
 
-	@Override
-	public final void stop() {
+  @Override
+  public final void stop() {
 
-		logger.info("stop");
+    logger.info("stop");
 
-		synchronized (mutex) {
-			status = STATUS.STOPPED;
-		}
-	}
+    synchronized (mutex) {
+      status = STATUS.STOPPED;
+    }
+  }
 
-	@Override
-	public final boolean isStopped() {
-		synchronized (mutex) {
-			return status == STATUS.STOPPED;
-		}
-	}
+  @Override
+  public final boolean isStopped() {
+    synchronized (mutex) {
+      return status == STATUS.STOPPED;
+    }
+  }
 
-	@Override
-	public void setVolume(int volume) {
+  @Override
+  public void setVolume(int volume) {
 
-		logger.info("volume: " + volume);
+    logger.info("volume: " + volume);
 
-		if (volume < 0 || volume > 200) {
-			throw new IllegalArgumentException("Wrong value for volume (" + volume + "), must be in interval [0..200].");
-		}
+    if (volume < 0 || volume > 200) {
+      throw new IllegalArgumentException("Wrong value for volume (" + volume + "), must be in interval [0..200].");
+    }
 
-		this.volume = volume;
-	}
+    this.volume = volume;
+  }
 
-	@Override
-	public int getVolume() {
-		return volume;
-	}
+  @Override
+  public int getVolume() {
+    return volume;
+  }
 
 }

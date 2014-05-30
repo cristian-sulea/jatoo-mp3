@@ -28,20 +28,20 @@ import java.net.URL;
  */
 public class MP3Factory {
 
-	public static MP3 createMP3(MP3Input input) {
-		return new MP3Impl(input);
-	}
+  public static MP3 createMP3(MP3Input input) {
+    return new MP3Impl(input);
+  }
 
-	public static MP3 createMP3(File file) {
-		return createMP3(new MP3InputFromFile(file));
-	}
+  public static MP3 createMP3(File file) {
+    return createMP3(new MP3InputFromFile(file));
+  }
 
-	public static MP3 createMP3(String file) {
-		return createMP3(new MP3InputFromFile(file));
-	}
+  public static MP3 createMP3(String file) {
+    return createMP3(new MP3InputFromFile(file));
+  }
 
-	public static MP3 createMP3(URL url) {
-		return createMP3(new MP3InputFromURL(url));
-	}
+  public static MP3 createMP3(URL url) {
+    return createMP3(new MP3InputFromURL(url));
+  }
 
 }

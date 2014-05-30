@@ -28,11 +28,11 @@ import java.io.InputStream;
  */
 public interface MP3Input {
 
-	/**
-	 * Creates a new {@link InputStream} to the sound (mp3) source.
-	 * 
-	 * @throws IOException
-	 */
-	InputStream createStream() throws IOException;
+  /**
+   * Creates a new {@link InputStream} to the sound (mp3) source.
+   * 
+   * @throws IOException
+   */
+  InputStream createStream() throws IOException;
 
 }

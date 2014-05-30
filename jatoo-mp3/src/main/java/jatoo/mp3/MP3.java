@@ -27,65 +27,65 @@ import javax.sound.sampled.SourceDataLine;
  */
 public interface MP3 {
 
-	/**
-	 * Starts to play the MP3 file (or resume if is paused).
-	 */
-	void play();
+  /**
+   * Starts to play the MP3 file (or resume if is paused).
+   */
+  void play();
 
-	/**
-	 * Waits for the player thread to finish playing.
-	 * 
-	 * @see Thread#join()
-	 */
-	void join();
+  /**
+   * Waits for the player thread to finish playing.
+   * 
+   * @see Thread#join()
+   */
+  void join();
 
-	/**
-	 * Tests if this mp3 is playing.
-	 */
-	boolean isPlaying();
+  /**
+   * Tests if this mp3 is playing.
+   */
+  boolean isPlaying();
 
-	/**
-	 * Pauses the play.
-	 */
-	void pause();
+  /**
+   * Pauses the play.
+   */
+  void pause();
 
-	/**
-	 * Tests if this mp3 is paused.
-	 */
-	boolean isPaused();
+  /**
+   * Tests if this mp3 is paused.
+   */
+  boolean isPaused();
 
-	/**
-	 * Stops the play.
-	 */
-	void stop();
+  /**
+   * Stops the play.
+   */
+  void stop();
 
-	/**
-	 * Tests if this mp3 is stopped.
-	 */
-	boolean isStopped();
+  /**
+   * Tests if this mp3 is stopped.
+   */
+  boolean isStopped();
 
-	/**
-	 * Sets a new volume for this player. The value is actually the percent value,
-	 * so the value must be in interval [0,200].
-	 * 
-	 * @param volume
-	 *          the new volume
-	 * 
-	 * @throws IllegalArgumentException
-	 *           if the volume is not in interval [0,200]
-	 */
-	void setVolume(int volume);
+  /**
+   * Sets a new volume for this player. The value is actually the percent value,
+   * so the value must be in interval [0,200].
+   * 
+   * @param volume
+   *          the new volume
+   * 
+   * @throws IllegalArgumentException
+   *           if the volume is not in interval [0,200]
+   */
+  void setVolume(int volume);
 
-	/**
-	 * Returns the actual volume.
-	 */
-	int getVolume();
+  /**
+   * Returns the actual volume.
+   */
+  int getVolume();
 
-	/**
-	 * Retrieves the position in milliseconds of the current audio sample being
-	 * played. This method delegates to the {@link SourceDataLine} that is used by
-	 * this player to sound the decoded audio samples.
-	 */
-	long getPosition();
+  /**
+   * Retrieves the position in milliseconds of the current audio sample being
+   * played. This method delegates to the {@link SourceDataLine} that is used by
+   * this player to sound the decoded audio samples.
+   */
+  long getPosition();
 
 }

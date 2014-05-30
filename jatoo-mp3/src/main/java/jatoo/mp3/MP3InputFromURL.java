@@ -29,20 +29,20 @@ import java.net.URL;
  */
 public class MP3InputFromURL implements MP3Input {
 
-	private URL url;
+  private URL url;
 
-	public MP3InputFromURL(URL url) {
-		this.url = url;
-	}
+  public MP3InputFromURL(URL url) {
+    this.url = url;
+  }
 
-	@Override
-	public InputStream createStream() throws IOException {
-		return url.openStream();
-	}
+  @Override
+  public InputStream createStream() throws IOException {
+    return url.openStream();
+  }
 
-	@Override
-	public String toString() {
-		return url.toString();
-	}
+  @Override
+  public String toString() {
+    return url.toString();
+  }
 
 }

@@ -30,24 +30,24 @@ import java.io.InputStream;
  */
 public class MP3InputFromFile implements MP3Input {
 
-	private File file;
+  private File file;
 
-	public MP3InputFromFile(File file) {
-		this.file = file;
-	}
+  public MP3InputFromFile(File file) {
+    this.file = file;
+  }
 
-	public MP3InputFromFile(String file) {
-		this.file = new File(file);
-	}
+  public MP3InputFromFile(String file) {
+    this.file = new File(file);
+  }
 
-	@Override
-	public InputStream createStream() throws IOException {
-		return new FileInputStream(file);
-	}
+  @Override
+  public InputStream createStream() throws IOException {
+    return new FileInputStream(file);
+  }
 
-	@Override
-	public String toString() {
-		return file.getAbsolutePath();
-	}
+  @Override
+  public String toString() {
+    return file.getAbsolutePath();
+  }
 
 }
