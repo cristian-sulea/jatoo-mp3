@@ -15,7 +15,8 @@
 
 
 	<name>JaToo :: Mp3</name>
-	<description>JaToo :: Mp3</description>
+	<description>A cross platform and Open Source mp3 player library implemented in Java.</description>
+
 	<url>http://cristian.sulea.net/projects/jatoo-mp3/</url>
 
 	<inceptionYear>2011</inceptionYear>

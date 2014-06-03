@@ -1,18 +1,29 @@
- -----
- Title Here
- -----
- Author Here
- -----
- Date Here
- -----
+	-----
+	A cross platform and Open Source mp3 player library implemented in Java.
+	-----
+	Cristian Sulea
+	-----
+	2014-06-03
+	-----
 
-Maven Site for your project
+JaToo :: Mp3
 
- Congratulations! If you are looking at this page then you have successfully generated a
- template site employing the site archetype and you have run:
-  
-+-----+
+	JaToo :: Mp3 is a cross platform and Open Source mp3 player library implemented in Java.
 
-mvn site
 
-+-----+
+Users guide
+
++--
+MP3 mp3 = MP3Factory.createMP3("file1.mp3");
+
+mp3.play();
+
+mp3.pause();
+
+mp3.play();
+
+mp3.stop();
+
+mp3.play();
++--
+

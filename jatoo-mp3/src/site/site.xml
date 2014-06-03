@@ -8,7 +8,7 @@
 		<name>${project.name}</name>
 		<alt>${project.name}</alt>
 		<src>images/logo.png</src>
-		<href>../jatoo-mp3/index.html</href>
+		<href>index.html</href>
 	</bannerRight>
 
 	<body>
@@ -16,14 +16,6 @@
 		<menu name="${project.name}">
 			<item name="Welcome" href="index.html"></item>
 		</menu>
-
-		<menu name="Maven 2.0">
-			<item name="APT Format" href="format.html" />
-			<item name="FAQ" href="faq.html" />
-			<item name="Xdoc Example" href="xdoc.html" />
-		</menu>
-
-		<menu ref="reports" />
 
 	</body>
 
