@@ -32,6 +32,7 @@ public interface MP3Input {
    * Creates a new {@link InputStream} to the sound (mp3) source.
    * 
    * @throws IOException
+   *           if there is a problem creating the stream
    */
   InputStream createStream() throws IOException;
 
