@@ -24,8 +24,8 @@ import org.apache.commons.logging.LogFactory;
  * Abstract implementation for {@link MP3}.This provides a convenient base class
  * from which other applications can be easily derived.
  * 
- * @author Cristian Sulea ( http://cristian.sulea.net )
- * @version 1.0, December 3, 2013
+ * @author <a href="http://cristian.sulea.net" rel="author">Cristian Sulea</a>
+ * @version 1.1, June 12, 2014
  */
 public abstract class AbstractMP3 implements MP3 {
 
@@ -39,8 +39,8 @@ public abstract class AbstractMP3 implements MP3 {
     STOPPED
   }
 
-  protected volatile STATUS status = STATUS.STOPPED;
-  protected volatile int volume = 100;
+  protected STATUS status = STATUS.STOPPED;
+  private int volume = DEFAULT_VOLUME;
 
   @Override
   public final void play() {
@@ -95,11 +95,11 @@ public abstract class AbstractMP3 implements MP3 {
   @Override
   public void setVolume(int volume) {
 
-    logger.info("volume: " + volume);
-
-    if (volume < 0 || volume > 200) {
-      throw new IllegalArgumentException("Wrong value for volume (" + volume + "), must be in interval [0..200].");
+    if (volume < 0 || volume > 2 * DEFAULT_VOLUME) {
+      throw new IllegalArgumentException("Wrong value for volume (" + volume + "), must be in interval [0.." + (2 * DEFAULT_VOLUME) + "].");
     }
+
+    logger.info("volume: " + volume);
 
     this.volume = volume;
   }

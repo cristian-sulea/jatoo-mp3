@@ -7,7 +7,7 @@
 		<groupId>jatoo</groupId>
 		<artifactId>jatoo</artifactId>
 		<relativePath>../../jatoo/jatoo/pom.xml</relativePath>
-		<version>3.0</version>
+		<version>3.0-SNAPSHOT</version>
 	</parent>
 
 

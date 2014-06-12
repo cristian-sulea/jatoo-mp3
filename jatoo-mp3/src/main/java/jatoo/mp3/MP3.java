@@ -23,10 +23,16 @@ import javax.sound.sampled.SourceDataLine;
  * This interface provides methods (like {@link #play()}, {@link #pause()},
  * {@link #stop()}, and so on) to work with a mp3 file.
  * 
- * @author Cristian Sulea ( http://cristian.sulea.net )
- * @version 1.1, May 19, 2014
+ * @author <a href="http://cristian.sulea.net" rel="author">Cristian Sulea</a>
+ * @version 1.2, June 12, 2014
  */
 public interface MP3 {
+
+  /**
+   * The value representing the volume when gain control is not changed or is
+   * set to default value.
+   */
+  int DEFAULT_VOLUME = 100;
 
   /**
    * Starts to play the MP3 file (or resume if is paused).
@@ -73,9 +79,9 @@ public interface MP3 {
    *          the new volume
    * 
    * @throws IllegalArgumentException
-   *           if the volume is not in interval [0,200]
+   *           if the volume is not in interval [0, {@value #DEFAULT_VOLUME}]
    */
-  void setVolume(int volume);
+  void setVolume(int volume) throws IllegalArgumentException;
 
   /**
    * Returns the actual volume.

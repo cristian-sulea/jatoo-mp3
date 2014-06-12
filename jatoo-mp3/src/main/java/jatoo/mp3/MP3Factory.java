@@ -23,26 +23,29 @@ import java.net.URL;
 /**
  * Factory class for creating {@link MP3} objects from various inputs.
  * 
- * @author Cristian Sulea ( http://cristian.sulea.net )
- * @version 2.0, May 16, 2014
+ * @author <a href="http://cristian.sulea.net" rel="author">Cristian Sulea</a>
+ * @version 2.1, June 12, 2014
  */
 public final class MP3Factory {
 
+  /**
+   * Private constructor (this is a factory class).
+   */
   private MP3Factory() {}
 
-  public static MP3 createMP3(MP3Input input) {
+  public static MP3 createMP3(final MP3Input input) {
     return new MP3Impl(input);
   }
 
-  public static MP3 createMP3(File file) {
+  public static MP3 createMP3(final File file) {
     return createMP3(new MP3InputFromFile(file));
   }
 
-  public static MP3 createMP3(String file) {
+  public static MP3 createMP3(final String file) {
     return createMP3(new MP3InputFromFile(file));
   }
 
-  public static MP3 createMP3(URL url) {
+  public static MP3 createMP3(final URL url) {
     return createMP3(new MP3InputFromURL(url));
   }
 

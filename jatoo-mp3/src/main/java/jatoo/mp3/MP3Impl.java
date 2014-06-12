@@ -36,19 +36,17 @@ import javazoom.jl.decoder.SampleBuffer;
 /**
  * Default implementation (using javazoom) for {@link MP3}.
  * 
- * @author Cristian Sulea ( http://cristian.sulea.net )
- * @version 2.1, May 19, 2014
+ * @author <a href="http://cristian.sulea.net" rel="author">Cristian Sulea</a>
+ * @version 2.2, June 12, 2014
  */
 class MP3Impl extends AbstractMP3 implements MP3 {
 
   private volatile MP3Input input;
-
   private volatile Thread thread;
-
   private volatile SourceDataLine source;
 
-  private int sourceVolume = 100;
-  private float[] sourceVolumes = new float[201];
+  private int sourceVolume = DEFAULT_VOLUME;
+  private float[] sourceVolumes = new float[2 * DEFAULT_VOLUME + 1];
 
   MP3Impl(MP3Input input) {
     this.input = input;
@@ -112,7 +110,9 @@ class MP3Impl extends AbstractMP3 implements MP3 {
 
           try {
             thread.join();
-          } catch (NullPointerException | InterruptedException e) {}
+          } catch (NullPointerException | InterruptedException e) {
+            logger.error("Hmm... The method Thread#join() failed?", e);
+          }
 
           //
           // launch a new play command
@@ -243,18 +243,18 @@ class MP3Impl extends AbstractMP3 implements MP3 {
 
                       FloatControl gainControl = (FloatControl) source.getControl(FloatControl.Type.MASTER_GAIN);
 
-                      float stepMinimum = Math.abs(gainControl.getMinimum() / 100);
-                      float stepMaximum = gainControl.getMaximum() / 100;
+                      float stepMinimum = Math.abs(gainControl.getMinimum() / DEFAULT_VOLUME);
+                      float stepMaximum = gainControl.getMaximum() / DEFAULT_VOLUME;
 
                       sourceVolumes[0] = gainControl.getMinimum();
-                      sourceVolumes[100] = 0;
-                      sourceVolumes[200] = gainControl.getMaximum();
+                      sourceVolumes[DEFAULT_VOLUME] = 0;
+                      sourceVolumes[2 * DEFAULT_VOLUME] = gainControl.getMaximum();
 
-                      for (int i = 1; i <= 99; i++) {
+                      for (int i = 1, n = DEFAULT_VOLUME - 1; i <= n; i++) {
                         sourceVolumes[i] = sourceVolumes[i - 1] + stepMinimum;
                       }
 
-                      for (int i = 101; i <= 200; i++) {
+                      for (int i = DEFAULT_VOLUME + 1, n = 2 * DEFAULT_VOLUME; i <= n; i++) {
                         sourceVolumes[i] = sourceVolumes[i - 1] + stepMaximum;
                       }
                     }
@@ -267,7 +267,7 @@ class MP3Impl extends AbstractMP3 implements MP3 {
                       // in case of any error, set the source volume to 0
                       // meaning the signal's loudness is unaffected
 
-                      for (int i = 0; i <= 200; i++) {
+                      for (int i = 0, n = 2 * DEFAULT_VOLUME; i <= n; i++) {
                         sourceVolumes[i] = 0;
                       }
                     }
@@ -276,9 +276,9 @@ class MP3Impl extends AbstractMP3 implements MP3 {
                   //
                   // update the volume on the source
 
-                  if (sourceVolume != volume) {
+                  if (sourceVolume != getVolume()) {
 
-                    sourceVolume = volume;
+                    sourceVolume = getVolume();
 
                     FloatControl gainControl = (FloatControl) source.getControl(FloatControl.Type.MASTER_GAIN);
                     BooleanControl muteControl = (BooleanControl) source.getControl(BooleanControl.Type.MUTE);

@@ -24,8 +24,8 @@ import java.net.URL;
 /**
  * {@link URL} {@link MP3Input}
  * 
- * @author Cristian Sulea ( http://cristian.sulea.net )
- * @version 1.0, December 3, 2013
+ * @author <a href="http://cristian.sulea.net" rel="author">Cristian Sulea</a>
+ * @version 1.1, June 12, 2014
  */
 public class MP3InputFromURL implements MP3Input {
 
