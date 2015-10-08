@@ -4,30 +4,31 @@
 
 
 	<parent>
-		<groupId>jatoo</groupId>
+		<groupId>net.sulea.cristian</groupId>
 		<artifactId>jatoo</artifactId>
-		<relativePath>../../jatoo/jatoo/pom.xml</relativePath>
-		<version>3.0-SNAPSHOT</version>
+		<!-- <relativePath>../../jatoo/jatoo/pom.xml</relativePath> -->
+		<version>3.0</version>
 	</parent>
 
-
 	<artifactId>jatoo-mp3</artifactId>
+	<packaging>jar</packaging>
+
+
+	<version>3.0-SNAPSHOT</version>
 
 
 	<name>JaToo :: Mp3</name>
-	<description>A cross platform and Open Source mp3 player library implemented in Java.</description>
-
+	<description>A Java™ Open Source library created to ease the work with mp3 files.</description>
 	<url>http://cristian.sulea.net/projects/jatoo-mp3/</url>
 
 	<inceptionYear>2011</inceptionYear>
 
 
-	<licenses>
-		<license>
-			<name>GNU Lesser General Public License</name>
-			<url>http://www.gnu.org/licenses/lgpl.txt</url>
-		</license>
-	</licenses>
+	<scm>
+		<connection>scm:git:git@github.com:cristian-sulea/jatoo-mp3.git</connection>
+		<developerConnection>scm:git:git@github.com:cristian-sulea/jatoo-mp3.git</developerConnection>
+		<url>https://github.com/cristian-sulea/jatoo-mp3</url>
+	</scm>
 
 
 	<developers>
@@ -37,8 +38,9 @@
 			<email>cristian.sulea.79@gmail.com</email>
 			<url>http://cristian.sulea.net</url>
 			<roles>
-				<role>Architect</role>
-				<role>Developer</role>
+				<role>owner</role>
+				<role>architect</role>
+				<role>developer</role>
 			</roles>
 			<timezone>+3</timezone>
 		</developer>
@@ -50,7 +52,7 @@
 		<dependency>
 			<groupId>javazoom</groupId>
 			<artifactId>jlayer</artifactId>
-			<version>${dependency.version.javazoom-jlayer}</version>
+			<version>1.0.1</version>
 		</dependency>
 
 	</dependencies>
